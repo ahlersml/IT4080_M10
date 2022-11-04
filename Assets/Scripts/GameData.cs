@@ -85,7 +85,7 @@ public class GameData : NetworkBehaviour {
     // Public
     // --------------------------
     public void AddPlayerToList(ulong clientId) {
-        allPlayers.Add(new PlayerInfo(clientId, NextColor(), false));
+        allPlayers.Add(new PlayerInfo(clientId, NextColor(), true));
     }
 
 
