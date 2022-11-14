@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Multiplayer.Tools.NetStatsMonitor;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -106,5 +107,23 @@ public class GameData : NetworkBehaviour {
         }
 
         return idx;
+    }
+
+    public RuntimeNetStatsMonitor netMonitor;
+
+    public void Start()
+    {
+        netMonitor = NetworkManager.GetComponent<RuntimeNetStatsMonitor>();
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (netMonitor)
+            {
+                netMonitor.Visible = !netMonitor.Visible;
+                netMonitor.enabled = netMonitor.Visible;
+            }
+        }
     }
 }
